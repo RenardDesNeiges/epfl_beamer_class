@@ -2,7 +2,7 @@
 
 ![](demo.png)
 
-A simple beamer class for *EPFL*. 
+A simple beamer class for *EPFL*. The theme roughly implements the [epfl visual identity](https://www.epfl.ch/campus/services/communication/wp-content/uploads/2019/03/EPFL-brand-guidelines.pdf), and colors, it uses the *suisse-intl* font and needs to be compiled with either *xelatex* or *lualatex* (**pdflatex is not supported**).
 
 Written by:
 Titouan Renard, titouan.renard@gmail.com
