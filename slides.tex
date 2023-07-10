@@ -71,7 +71,7 @@ Honored custos, honored opponent, honored listeners, ...
 \section{Introduction}
 \subsection{Why beamer?}
 \begin{frame}
-\frametitle{Beamer for LUT slides}
+\frametitle{Beamer slides}
 \framesubtitle{}
 \begin{itemize}
 \item We assume you can use \LaTeX; if you cannot,
@@ -106,10 +106,10 @@ you write the content, the computer does the typesetting
 
 \begin{frame}[fragile]
 \frametitle{Selecting the Class}
-To start working with \texttt{lutbeamer}, start a \LaTeX\ document with the
+To start working with \texttt{epflbeamer}, start a \LaTeX\ document with the
 preamble:
-\begin{block}{Minimum LUT Beamer Document}
-\verb|\documentclass[light]{lutbeamer} % or [dark]|\\
+\begin{block}{Minimum EPFL Beamer Document}
+\verb|\documentclass[light]{epflbeamer} % or [dark]|\\
 \verb|\setbeameroption{hide notes} % or {show only notes} or| 
 \verb|% {show notes on second screen=right}|\\
 \verb|\begin{document}|\\
@@ -125,7 +125,7 @@ preamble:
 To set a typical title page, you call some commands in the preamble:
 \begin{block}{The Commands for the Title Page}
 \begin{verbatim}
-\setdepartment{LUT School of ... }
+\setdepartment{EPFL School of ... }
 \author{Author}
 \title[Short presentation title]{Presentation title}
 \subtitle{Presentation subtitle}
@@ -161,7 +161,7 @@ To set a typical title page, you call some commands in the preamble:
 \begin{itemize}[<alert@2>]
   \item You can use colours with the
         \verb|\textcolor{<color name>}{text}| command
-  \item The colours are defined in the \texttt{lutcolor} package:
+  \item The colours are defined in the \texttt{epflbeamer} class:
   \begin{itemize}
   \item Primary colour: \testcolor{epflrouge};
   \item Contrast colours: \testcolor{epflleman}, \testcolor{epflcanard}, \testcolor{epflperle};

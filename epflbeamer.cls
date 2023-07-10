@@ -1,22 +1,22 @@
 % Template for EPFL presentations with LaTeX beamer.
-%
+
 % Titouan Renard, titouan.renard@gmail.com
-%
+
 % Inspired by the template for LUT by Aleksei Mashlakov,
 % itself inspired by the template for SINTEF by Federico Zenith,
 % which was derived (through several iterations) from Håvard Berland's
 % beamerthementnu class.
-%
+
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-%
+
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-%
+
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -43,12 +43,12 @@
 \newcommand{\hrefcol}[2]{\textcolor{epflrouge}{\href{#1}{#2}}}
 
 
-\newbool{LUTdark}
+\newbool{IsDark}
 \PassOptionsToClass{aspectratio=169}{beamer} % Default, may be overridden
 \DeclareOption{cyandash}{\renewcommand{\@DashColor}{epflrouge}}
 \DeclareOption{nodash}{\renewcommand{\@DashHeight}{0mm}}
-\DeclareOption{light}{\boolfalse{LUTdark}}
-\DeclareOption{dark}{\booltrue{LUTdark}}
+\DeclareOption{light}{\boolfalse{IsDark}}
+\DeclareOption{dark}{\booltrue{IsDark}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ProcessOptions\relax
 \LoadClass{beamer}
@@ -174,7 +174,7 @@
 \setbeamercolor{block body example}{fg=black,bg=epflperle}
 \setbeamercolor{caption name}{fg=black}
 \newcommand{\@TheLogo}{ressources/epfl/logo-black.pdf}
-\ifbool{LUTdark}{
+\ifbool{IsDark}{
     \setbeamercolor{normal text}{fg=white}
     \setbeamercolor{background canvas}{bg=black}
     \setbeamercolor{structure}{fg=white}
