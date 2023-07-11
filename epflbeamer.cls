@@ -32,12 +32,14 @@
 \definecolor{epflcanard}{HTML}{007480}
 \definecolor{epflardoise}{HTML}{413D3A}
 \definecolor{epflperle}{HTML}{CAC7C7}
+\definecolor{lightgrey}{HTML}{F7F6F6}
 \definecolor{black}{rgb}{0.0, 0.0, 0.0}
 \definecolor{white}{rgb}{1.0, 1.0, 1.0}
 
 \newcommand{\@DashColor}{epflrouge}
 \newcommand{\@DashHeight}{1mm}
 \newcommand*{\coverimage}[1]{\def\@coverimage{#1}}
+\newcommand*{\setlablogo}[1]{\def\@lablogo{#1}}
 
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}} \texttt{#1}}
 \newcommand{\hrefcol}[2]{\textcolor{epflrouge}{\href{#1}{#2}}}
@@ -168,10 +170,12 @@
 \setbeamercolor{alerted text}{fg=epflrouge}
 \setbeamercolor{headline}{fg=white,bg=epflrouge}
 \setbeamercolor{author}{fg=black}
-\setbeamercolor{example text}{fg=epflrouge,bg=epflperle}
+\setbeamercolor{example text}{fg=epflrouge,bg=lightgrey}
 \setbeamercolor{block title}{fg=white,bg=epflrouge}
-\setbeamercolor{block body}{fg=black,bg=epflperle}
-\setbeamercolor{block body example}{fg=black,bg=epflperle}
+\setbeamercolor{block body}{fg=black,bg=lightgrey}
+\setbeamercolor{block body example}{fg=black,bg=lightgrey}
+\setbeamercolor{block title alerted}{fg=white,bg=epflcanard}
+\setbeamercolor{block title example}{fg=white,bg=epflardoise}
 \setbeamercolor{caption name}{fg=black}
 \newcommand{\@TheLogo}{ressources/epfl/logo-black.pdf}
 \ifbool{IsDark}{
@@ -248,64 +252,33 @@
 {
     \begin{tikzpicture}[overlay,remember picture]
 
-        %% Add the cover image
-        \node[above=0,inner sep=0] at (current page.south) {%
-            \includegraphics[width=\paperwidth]{\@coverimage}};
-
-
-        %% Add the logo in the bottom left
-        \node[above left=5mm] at (current page.south east) {%
-            \includegraphics[height=3ex]{ressources/epfl/logo-white.png}};
-
-        %% Add the banner with the title, subtitle, subject and author(s)
-        \node[below=.8cm,fill=white!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0,text opacity=1] at (current page.north) {%
-            \begin{minipage}{0.9\paperwidth}
-                %% Format and add the title
-                \color{epflrouge}\raggedright\largetitlestyle\fontsize{35}{35}\selectfont%
-                {\inserttitle} \\[0.5ex]
-                % Format and add (optional) subtitle and subject
-                \color{white}\titlestyle\fontsize{20}{20}\selectfont%
-                {\normalfont \insertsubtitle} \\[1.5ex]
-                
-                \fontsize{12}{12}
-                {\normalfont \insertauthor} \\
-            \end{minipage}};
-
-
-        % %% Add the affiliation on the left
-        % \node[rotate=0,below=5mm] at (current page.north) {%
-        %     \ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
-
+            %% Add the cover image
+            \node[above=0,inner sep=0] at (current page.south) {%
+                \includegraphics[width=\paperwidth]{\@coverimage}};
+    
+    
+            %% Add the logo in the bottom left
+            \node[above left=5mm] at (current page.south east) {%
+                \includegraphics[height=3ex]{ressources/epfl/logo-white.png}};
+    
+            %% Add the logo in the bottom left
+            \node[below left=5mm] at (current page.north east) {%
+                \includegraphics[height=5ex]{\@lablogo}};
+    
+            %% Add the banner with the title, subtitle, subject and author(s)
+            \node[below=27mm, left=-6.2cm, fill=white!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0,text opacity=1] at (current page.north) {%
+                \begin{minipage}{0.7\paperwidth}
+                    %% Format and add the title
+                    \color{epflrouge}\raggedright\largetitlestyle\fontsize{25}{25}\selectfont%
+                    {\inserttitle} \\[0.5ex]
+                    % Format and add (optional) subtitle and subject
+                    \color{white}\titlestyle\fontsize{14}{14}\selectfont%
+                    {\normalfont \insertsubtitle} \\
+                    \fontsize{9}{9}
+                    {\normalfont \insertauthor} \\
+                    {\normalfont \department,~\insertshortinstitute} \\
+                \end{minipage}};
         \end{tikzpicture}
-
-%   \hbox{%
-%    \begin{beamercolorbox}[wd=0.74\paperwidth,sep=8pt,left]{institute}
-%       \usebeamerfont{institute}{\department\par \insertinstitute}
-%     \end{beamercolorbox}
-%     \begin{beamercolorbox}[wd=0.2\paperwidth,sep=8pt,left]{institute}
-%      \usebeamercolor[fg]{titlegraphic}\hfill\inserttitlegraphic
-%     \end{beamercolorbox}
-%   }%
-%   \begin{centering}
-%     \begin{beamercolorbox}[sep=8pt,left]{title}
-%       \usebeamerfont{title}\MakeUppercase{\inserttitle}\par%
-%       \textcolor{\@DashColor}{\rule[0ex]{1cm}{\@DashHeight}} 
-%     \end{beamercolorbox}%
-%     \begin{beamercolorbox}[sep=8pt,left]{subtitle}
-%       \ifx\insertsubtitle\@empty%
-%       \else%
-%         \vskip0em%
-%         {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\MakeUppercase{\insertsubtitle}\par}%
-%       \fi%     
-%     \end{beamercolorbox}
-%     \vskip0em\par
-%     \begin{beamercolorbox}[sep=8pt,left]{author}
-%         \usebeamerfont{author}{Presented by \insertauthor}
-%     \end{beamercolorbox}
-%     \begin{beamercolorbox}[sep=8pt,left]{date}
-%       \usebeamerfont{date}{\insertdate}
-%     \end{beamercolorbox}%\vskip0.5em
-%     \end{centering}
 }
 
 
